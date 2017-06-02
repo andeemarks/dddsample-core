@@ -4,7 +4,7 @@ jdk:
 
 before_script:
   - mvn jetty:run & # start a Web server
-  - sleep 15
+  - sleep 30
 
 script:
   - mvn test
