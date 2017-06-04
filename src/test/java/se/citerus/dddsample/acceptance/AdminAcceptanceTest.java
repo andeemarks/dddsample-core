@@ -22,6 +22,25 @@ public class AdminAcceptanceTest extends AbstractAcceptanceTest {
     }
 
     @Test
+    public void adminSiteCanRouteNewCargo() {
+        LaunchPage home = new LaunchPage(driver,"http://localhost:8080/");
+        AdminPage adminPage = home.goToAdminPage();
+
+        CargoBookingPage cargoBookingPage = adminPage.bookNewCargo();
+        cargoBookingPage.selectOrigin("NLRTM");
+        cargoBookingPage.selectDestination("USDAL");
+        LocalDate arrivalDeadline = LocalDate.now().plus(3, ChronoUnit.WEEKS);
+        cargoBookingPage.selectArrivalDeadline(arrivalDeadline);
+        CargoDetailsPage cargoDetailsPage = cargoBookingPage.book();
+
+        CargoRoutingPage cargoRoutingPage = cargoDetailsPage.routeCargo();
+        cargoDetailsPage = cargoRoutingPage.assignRoute();
+
+        // TODO Need to check that the cargo list page displayed "Yes" in routed column
+
+    }
+
+    @Test
     public void adminSiteCanBookNewCargo() {
         LaunchPage home = new LaunchPage(driver,"http://localhost:8080/");
         AdminPage adminPage = home.goToAdminPage();

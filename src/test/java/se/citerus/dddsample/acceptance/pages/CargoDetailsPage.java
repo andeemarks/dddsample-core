@@ -21,7 +21,7 @@ public class CargoDetailsPage {
 
         WebElement newCargoTableCaption = driver.findElement(By.cssSelector("table caption"));
 
-        assertTrue(newCargoTableCaption.getText().startsWith(TRACKING_ID_HEADER));
+        assertTrue("Cannot find page header of " + TRACKING_ID_HEADER, newCargoTableCaption.getText().startsWith(TRACKING_ID_HEADER));
         trackingId = newCargoTableCaption.getText().replaceFirst(TRACKING_ID_HEADER, "");
     }
 
@@ -57,5 +57,11 @@ public class CargoDetailsPage {
         String actualArrivalDeadline = driver.findElement(By.xpath("//div[@id='container']/table/tbody/tr[4]/td[2]")).getText();
 
         assertEquals(expectedArrivalDeadline.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")), actualArrivalDeadline);
+    }
+
+    public CargoRoutingPage routeCargo() {
+        driver.findElement(By.linkText("Route this cargo")).click();
+
+        return new CargoRoutingPage(driver);
     }
 }
