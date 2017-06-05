@@ -9,6 +9,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 public class AdminAcceptanceTest extends AbstractAcceptanceTest {
     @Test
@@ -32,12 +33,13 @@ public class AdminAcceptanceTest extends AbstractAcceptanceTest {
         LocalDate arrivalDeadline = LocalDate.now().plus(3, ChronoUnit.WEEKS);
         cargoBookingPage.selectArrivalDeadline(arrivalDeadline);
         CargoDetailsPage cargoDetailsPage = cargoBookingPage.book();
+        String newCargoTrackingId = cargoDetailsPage.getTrackingId();
 
         CargoRoutingPage cargoRoutingPage = cargoDetailsPage.routeCargo();
         cargoDetailsPage = cargoRoutingPage.assignRoute();
 
-        // TODO Need to check that the cargo list page displayed "Yes" in routed column
-
+        adminPage = cargoDetailsPage.listAllCargo();
+        assertEquals("Route status for cargo has not been updated", "Yes", adminPage.routingStatusForCargo(newCargoTrackingId));
     }
 
     @Test

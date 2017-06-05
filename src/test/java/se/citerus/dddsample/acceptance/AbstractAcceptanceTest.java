@@ -10,7 +10,6 @@ public abstract class AbstractAcceptanceTest {
     @Before
     public void setup() {
         driver = new PhantomJSDriver();
-        screenshotTestRule.updateDriver(driver);
     }
 
     @After
@@ -18,7 +17,4 @@ public abstract class AbstractAcceptanceTest {
         driver.quit();
 
     }
-    @Rule
-    public ScreenshotTestRule screenshotTestRule = new ScreenshotTestRule();
-
 }

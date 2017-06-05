@@ -39,4 +39,15 @@ public class AdminPage {
 
         return new CargoDetailsPage(driver);
     }
+
+    public String routingStatusForCargo(String cargoTrackingId) {
+        List<WebElement> rows = driver.findElements(By.xpath("//table//tbody//tr"));
+        for (WebElement row : rows) {
+            String currentCargoTrackingId = row.findElement(By.xpath("./td[1]")).getText();
+            if (currentCargoTrackingId.equalsIgnoreCase(cargoTrackingId)) {
+                return row.findElement(By.xpath("./td[4]")).getText();
+            }
+        }
+        return null;
+    }
 }
