@@ -51,8 +51,11 @@ public class AdminPage {
         return null;
     }
 
-    public void expectCargoIsRouted(String newCargoTrackingId) {
-        assertEquals("Route status for cargo has not been updated", "Yes", routingStatusForCargo(newCargoTrackingId));
+    public void expectCargoIsRouted(String trackingId) {
+        assertEquals("Route status for cargo has not been updated", "Yes", routingStatusForCargo(trackingId));
     }
 
+    public void expectCargoIsMisrouted(String trackingId) {
+        assertEquals("Route status for cargo has not been updated", "MisroutedYes", routingStatusForCargo(trackingId));
+    }
 }

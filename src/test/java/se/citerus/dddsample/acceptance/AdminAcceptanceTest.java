@@ -35,6 +35,7 @@ public class AdminAcceptanceTest extends AbstractAcceptanceTest {
 
     private CargoDetailsPage routeCargo(CargoDetailsPage cargoDetailsPage) {
         CargoRoutingPage cargoRoutingPage = cargoDetailsPage.routeCargo();
+
         return cargoRoutingPage.assignRoute();
     }
 
@@ -44,6 +45,7 @@ public class AdminAcceptanceTest extends AbstractAcceptanceTest {
         cargoBookingPage.selectDestination("USDAL");
         LocalDate arrivalDeadline = LocalDate.now().plus(3, ChronoUnit.WEEKS);
         cargoBookingPage.selectArrivalDeadline(arrivalDeadline);
+
         return cargoBookingPage.book();
     }
 
@@ -71,6 +73,26 @@ public class AdminAcceptanceTest extends AbstractAcceptanceTest {
         cargoDetailsPage = cargoDestinationPage.selectDestinationTo("AUMEL");
         cargoDetailsPage.expectDestinationOf("AUMEL");
         cargoDetailsPage.expectArrivalDeadlineOf(arrivalDeadline);
+
+    }
+
+    @Test
+    public void adminSiteCanRerouteCargoWhenDestinationIsChanged() {
+        LaunchPage home = new LaunchPage(driver,"http://localhost:8080/");
+        AdminPage adminPage = home.goToAdminPage();
+
+        CargoDetailsPage cargoDetailsPage = bookCargo(adminPage);
+        String newCargoTrackingId = cargoDetailsPage.getTrackingId();
+        cargoDetailsPage = routeCargo(cargoDetailsPage);
+        adminPage = cargoDetailsPage.listAllCargo();
+        adminPage.expectCargoIsRouted(newCargoTrackingId);
+        cargoDetailsPage = adminPage.showDetailsFor(newCargoTrackingId);
+
+        CargoDestinationPage cargoDestinationPage = cargoDetailsPage.changeDestination();
+        cargoDetailsPage = cargoDestinationPage.selectDestinationTo("AUMEL");
+        adminPage = cargoDetailsPage.listAllCargo();
+        adminPage.expectCargoIsMisrouted(newCargoTrackingId);
+
 
     }
 }
