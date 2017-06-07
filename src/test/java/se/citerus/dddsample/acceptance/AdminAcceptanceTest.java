@@ -86,13 +86,18 @@ public class AdminAcceptanceTest extends AbstractAcceptanceTest {
         cargoDetailsPage = routeCargo(cargoDetailsPage);
         adminPage = cargoDetailsPage.listAllCargo();
         adminPage.expectCargoIsRouted(newCargoTrackingId);
-        cargoDetailsPage = adminPage.showDetailsFor(newCargoTrackingId);
 
+        cargoDetailsPage = adminPage.showDetailsFor(newCargoTrackingId);
         CargoDestinationPage cargoDestinationPage = cargoDetailsPage.changeDestination();
         cargoDetailsPage = cargoDestinationPage.selectDestinationTo("AUMEL");
         adminPage = cargoDetailsPage.listAllCargo();
         adminPage.expectCargoIsMisrouted(newCargoTrackingId);
 
+        cargoDetailsPage = adminPage.showDetailsFor(newCargoTrackingId);
+        CargoRoutingPage cargoRoutingPage = cargoDetailsPage.rerouteCargo();
+        cargoDetailsPage = cargoRoutingPage.assignRoute();
+        adminPage = cargoDetailsPage.listAllCargo();
+        adminPage.expectCargoIsRouted(newCargoTrackingId);
 
     }
 }

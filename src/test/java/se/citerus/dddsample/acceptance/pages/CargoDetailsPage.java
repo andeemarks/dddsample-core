@@ -64,4 +64,10 @@ public class CargoDetailsPage {
 
         return new CargoRoutingPage(driver);
     }
+
+    public CargoRoutingPage rerouteCargo() {
+        driver.findElement(By.linkText("reroute this cargo")).click();
+
+        return new CargoRoutingPage(driver);
+    }
 }
