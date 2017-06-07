@@ -5,15 +5,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 
 public abstract class AbstractAcceptanceTest {
-    protected WebDriver driver;
+    protected static WebDriver driver;
 
-    @Before
-    public void setup() {
+    @BeforeClass
+    public static void setup() {
         driver = new PhantomJSDriver();
     }
 
-    @After
-    public void tearDown() {
+    @AfterClass
+    public static void tearDown() {
         driver.quit();
 
     }
