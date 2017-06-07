@@ -50,4 +50,9 @@ public class AdminPage {
         }
         return null;
     }
+
+    public void expectCargoIsRouted(String newCargoTrackingId) {
+        assertEquals("Route status for cargo has not been updated", "Yes", routingStatusForCargo(newCargoTrackingId));
+    }
+
 }
