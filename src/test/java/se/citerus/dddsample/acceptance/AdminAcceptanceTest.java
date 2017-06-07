@@ -27,6 +27,9 @@ public class AdminAcceptanceTest extends AbstractAcceptanceTest {
 
         CargoDetailsPage cargoDetailsPage = bookCargo(adminPage);
         String newCargoTrackingId = cargoDetailsPage.getTrackingId();
+        adminPage = cargoDetailsPage.listAllCargo();
+        adminPage.expectCargoIsNotRouted(newCargoTrackingId);
+        cargoDetailsPage = adminPage.showDetailsFor(newCargoTrackingId);
         cargoDetailsPage = routeCargo(cargoDetailsPage);
 
         adminPage = cargoDetailsPage.listAllCargo();
