@@ -11,4 +11,8 @@
     <root level="INFO">
         <appender-ref ref="STDOUT" />
     </root>
+
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <logger name="org.springframework" level="WARN"/>
+
 </configuration>
