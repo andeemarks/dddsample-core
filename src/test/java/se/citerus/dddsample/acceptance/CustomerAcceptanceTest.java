@@ -10,7 +10,7 @@ public class CustomerAcceptanceTest extends AbstractAcceptanceTest {
 
     @Before
     public void goToCustomerPage() {
-        LaunchPage home = new LaunchPage(driver,"http://localhost:8080/");
+        LaunchPage home = new LaunchPage(driver);
         customerPage = home.goToCustomerPage();
     }
 
