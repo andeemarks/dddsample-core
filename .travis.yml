@@ -3,11 +3,8 @@ jdk:
   - oraclejdk8
 
 before_script:
-  - mvn jetty:run & # start a Web server
+  - mvn spring-boot:run
   - sleep 30
 
 script:
   - mvn test
-
-after_script:
-  - mvn jetty:stop
