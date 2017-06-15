@@ -6,13 +6,12 @@ import org.openqa.selenium.WebDriver;
 import static org.junit.Assert.assertEquals;
 
 public class LaunchPage {
+    public static final String BASEURL = "http://localhost:8080/dddsample";
     private final WebDriver driver;
-    private final String baseUrl;
 
-    public LaunchPage(WebDriver driver, String baseUrl) {
+    public LaunchPage(WebDriver driver) {
         this.driver = driver;
-        this.baseUrl = baseUrl;
-        driver.get(baseUrl);
+        driver.get(BASEURL);
         assertEquals("DDDSample", driver.getTitle());
     }
 

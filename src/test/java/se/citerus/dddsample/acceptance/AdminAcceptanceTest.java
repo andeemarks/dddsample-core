@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 public class AdminAcceptanceTest extends AbstractAcceptanceTest {
     @Test
     public void cargoListContainsCannedCargo() {
-        LaunchPage home = new LaunchPage(driver,"http://localhost:8080/");
+        LaunchPage home = new LaunchPage(driver);
         AdminPage page = home.goToAdminPage();
         page.listAllCargo();
 
@@ -22,7 +22,7 @@ public class AdminAcceptanceTest extends AbstractAcceptanceTest {
 
     @Test
     public void canRouteNewCargo() {
-        LaunchPage home = new LaunchPage(driver,"http://localhost:8080/");
+        LaunchPage home = new LaunchPage(driver);
         AdminPage adminPage = home.goToAdminPage();
 
         CargoDetailsPage cargoDetailsPage = bookCargo(adminPage);
@@ -54,7 +54,7 @@ public class AdminAcceptanceTest extends AbstractAcceptanceTest {
 
     @Test
     public void canBookNewCargo() {
-        LaunchPage home = new LaunchPage(driver,"http://localhost:8080/");
+        LaunchPage home = new LaunchPage(driver);
         AdminPage adminPage = home.goToAdminPage();
 
         CargoBookingPage cargoBookingPage = adminPage.bookNewCargo();
@@ -81,7 +81,7 @@ public class AdminAcceptanceTest extends AbstractAcceptanceTest {
 
     @Test
     public void canRerouteCargoWhenDestinationIsChanged() {
-        LaunchPage home = new LaunchPage(driver,"http://localhost:8080/");
+        LaunchPage home = new LaunchPage(driver);
         AdminPage adminPage = home.goToAdminPage();
 
         CargoDetailsPage cargoDetailsPage = bookCargo(adminPage);
