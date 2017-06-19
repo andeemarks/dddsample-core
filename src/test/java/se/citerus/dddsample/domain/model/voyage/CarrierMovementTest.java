@@ -24,10 +24,12 @@ public class CarrierMovementTest extends TestCase {
   }
 
   public void testSameValueAsEqualsHashCode() throws Exception {
-    CarrierMovement cm1 = new CarrierMovement(STOCKHOLM, HAMBURG, new Date(), new Date());
-    CarrierMovement cm2 = new CarrierMovement(STOCKHOLM, HAMBURG, new Date(), new Date());
-    CarrierMovement cm3 = new CarrierMovement(HAMBURG, STOCKHOLM, new Date(), new Date());
-    CarrierMovement cm4 = new CarrierMovement(HAMBURG, STOCKHOLM, new Date(), new Date());
+    final Date departureTime = new Date();
+    final Date arrivalTime = new Date();
+    CarrierMovement cm1 = new CarrierMovement(STOCKHOLM, HAMBURG, departureTime, arrivalTime);
+    CarrierMovement cm2 = new CarrierMovement(STOCKHOLM, HAMBURG, departureTime, arrivalTime);
+    CarrierMovement cm3 = new CarrierMovement(HAMBURG, STOCKHOLM, departureTime, arrivalTime);
+    CarrierMovement cm4 = new CarrierMovement(HAMBURG, STOCKHOLM, departureTime, arrivalTime);
 
     assertTrue(cm1.sameValueAs(cm2));
     assertFalse(cm2.sameValueAs(cm3));
