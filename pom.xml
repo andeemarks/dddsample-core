@@ -117,8 +117,6 @@
                     <rootStandaloneServerDirectory>/tmp</rootStandaloneServerDirectory>
                     <!-- Where you want to store downloaded zip files -->
                     <downloadedZipFileDirectory>/tmp</downloadedZipFileDirectory>
-                    <onlyGetLatestVersions>true</onlyGetLatestVersions>
-                    <onlyGetDriversForHostOperatingSystem>true</onlyGetDriversForHostOperatingSystem>
                 </configuration>
                 <executions>
                     <execution>
