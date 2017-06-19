@@ -6,10 +6,10 @@ before_script:
 - sleep 30
 script:
 - mvn test
-deploy:
-  provider: heroku
-  api_key:
-    secure: jOKwdpsru6o1G5sBJfhz3abEnbgokOKkS+X8DTmiZlHH3mKQ5Z5oqBePDCzU6fVtDe876d0gWKRuCvO7VMXpgD2ZfPOD6FiO/Od3vjAr65HvL8s6lYcul44epxLMlch89f+sLJD2SjuRzDIqVMgsVUWJd9a8acyUZQaorOgmkEwAqXDa4E8ynDAC4NepGhmvRpNNxhx54uFW0LZmdta/8c4/+rvDeYpihyMmuYQtKVZjTVFvThtIh5RnUb/r5COqvoH6va6IXdAHnTQR+TdZ/McP1exqKkLUicy19xz5XVciDV5voSYmlPukfYypvomwZu7QoqCnU5oh+QyNp2QN6tWwikHzNMgf3Qn3Uv/UWWEDHV1KvBfWtwl5TrjkilHBx3ylnLeu9EN+EFY7h3ogzoTTn3tY5ro7POaXik1Wkys8fqpUD7pbQbit+HDnIppgNahko1GiU4mredEt0rvYOExHBAyt4XuShn4Ica6MOe2KyGkAQ8ugJzzANsVOjIBeetncyHOn5nO/TvWyuM62IlHGU9770qSiw0Xs0Pxc8lTuH2M9C0pgMZXBb8+iEZ9l5eaHmrEZ4PblozK8aPuPzWyp8SNb9L++uvFyhPibtto//gWalQEeyJJD2WbIlD/bkVqxQ+m39RpsscHP0K071wbbk4VW3+UhAQz+M/oUvLw=
-  app: dddsample-core
-  on:
-    repo: andeemarks/dddsample-core
+#deploy:
+#  provider: heroku
+#  api_key:
+#    secure: jOKwdpsru6o1G5sBJfhz3abEnbgokOKkS+X8DTmiZlHH3mKQ5Z5oqBePDCzU6fVtDe876d0gWKRuCvO7VMXpgD2ZfPOD6FiO/Od3vjAr65HvL8s6lYcul44epxLMlch89f+sLJD2SjuRzDIqVMgsVUWJd9a8acyUZQaorOgmkEwAqXDa4E8ynDAC4NepGhmvRpNNxhx54uFW0LZmdta/8c4/+rvDeYpihyMmuYQtKVZjTVFvThtIh5RnUb/r5COqvoH6va6IXdAHnTQR+TdZ/McP1exqKkLUicy19xz5XVciDV5voSYmlPukfYypvomwZu7QoqCnU5oh+QyNp2QN6tWwikHzNMgf3Qn3Uv/UWWEDHV1KvBfWtwl5TrjkilHBx3ylnLeu9EN+EFY7h3ogzoTTn3tY5ro7POaXik1Wkys8fqpUD7pbQbit+HDnIppgNahko1GiU4mredEt0rvYOExHBAyt4XuShn4Ica6MOe2KyGkAQ8ugJzzANsVOjIBeetncyHOn5nO/TvWyuM62IlHGU9770qSiw0Xs0Pxc8lTuH2M9C0pgMZXBb8+iEZ9l5eaHmrEZ4PblozK8aPuPzWyp8SNb9L++uvFyhPibtto//gWalQEeyJJD2WbIlD/bkVqxQ+m39RpsscHP0K071wbbk4VW3+UhAQz+M/oUvLw=
+#  app: dddsample-core
+#  on:
+#    repo: andeemarks/dddsample-core
